@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import classes from './Calculator.module.css';
+import Screen from './Screen';
 
 const Calculator = props =>  {
 
     return (
         <div className={classes.body}>
-            <div className={classes.screen}></div>
+            <Screen />
         </div>
     )
 
