@@ -3,16 +3,23 @@ import classes from "./Calculator.module.css";
 import Screen from "./Screen";
 import Button from "./Button";
 
-const buttonValues = ['/','7','8','9','*','4','5','6','-','1','2','3','+','0','.']
+const buttonValues = ['/','7','8','9','*','4','5','6','-','1','2','3','+','0','.'];
 
 const Calculator = (props) => {
+  const [input, setInput] = useState("");
 
-    const [input, setInput] = useState('0');
+  const addInput = (event) => {
+    const newInput = event.target.innerText;
+    setInput(prev => prev += newInput);
+  };
 
-    const handleInput = (event) => {
-        const newInput = event.target.innerText;
-        setInput(newInput);
-    } 
+  const clearInput = () => {
+    setInput('');
+  }
+
+  const evalInput = () => {
+    setInput(prev => eval(prev));
+  }
 
   return (
     <div className={classes.body}>
@@ -21,9 +28,11 @@ const Calculator = (props) => {
         <Button>mrc</Button>
         <Button>m-</Button>
         <Button>m+</Button>
-        {buttonValues.map((value) => <Button onClick={handleInput}>{value}</Button>)}
-        <Button>C</Button>
-        <Button>=</Button>
+        {buttonValues.map((value) => (
+          <Button onClick={addInput}>{value}</Button>
+        ))}
+        <Button onClick={clearInput}>C</Button>
+        <Button onClick={evalInput}>=</Button>
       </div>
     </div>
   );
