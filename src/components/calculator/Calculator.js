@@ -18,6 +18,8 @@ const Calculator = (props) => {
   }
 
   const evalInput = () => {
+    const item = input + '=' + eval(input)
+    props.addToHistory(item)
     setInput(prev => eval(prev));
   }
 
