@@ -1,7 +1,10 @@
 .body {
     background-color: #bdc3c7;
-    width: 20rem;
+    width: 18rem;
     margin: 5rem auto;
     border-radius: 10px;
-    height: 25rem;
+    height: 26rem;
+    padding: 0.5rem 1.2rem;
+    text-align: center;
 }
+
