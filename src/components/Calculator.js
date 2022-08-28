@@ -1,13 +1,15 @@
 import { useState } from "react";
 import classes from "./Calculator.module.css";
 import Screen from "./Screen";
-import Button from "../components/UI/Button";
+import Button from "./Button";
+
+const buttonValues = ['/','7','8','9','*','4','5','6','-','1','2','3','+','0','.']
 
 const Calculator = (props) => {
 
     const [input, setInput] = useState('0');
 
-    const handleClick = (event) => {
+    const handleInput = (event) => {
         const newInput = event.target.innerText;
         setInput(newInput);
     } 
@@ -19,21 +21,7 @@ const Calculator = (props) => {
         <Button>mrc</Button>
         <Button>m-</Button>
         <Button>m+</Button>
-        <Button>/</Button>
-        <Button>7</Button>
-        <Button>8</Button>
-        <Button>9</Button>
-        <Button>*</Button>
-        <Button>4</Button>
-        <Button>5</Button>
-        <Button>6</Button>
-        <Button>-</Button>
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
-        <Button>+</Button>
-        <Button>0</Button>
-        <Button>.</Button>
+        {buttonValues.map((value) => <Button onClick={handleInput}>{value}</Button>)}
         <Button>C</Button>
         <Button>=</Button>
       </div>
